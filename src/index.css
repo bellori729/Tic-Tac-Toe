@@ -89,6 +89,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  p {
+    font-weight: bold;
+  }
 }
 
 .playBoard {
