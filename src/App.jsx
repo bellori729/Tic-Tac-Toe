@@ -8,10 +8,7 @@ const Square = ({ value, onSquareClick }) => {
   );
 };
 
-export default function Board() {
-  const [xIsNext, setXIsNext] = useState(true);
-  const [squares, setSquares] = useState(Array(9).fill(null));
-
+function Board({ xIsNext, squares, onPlay }) {
   const handleClick = (i) => {
     if (squares[i] || calculateWinner(squares)) {
       return;
@@ -23,8 +20,7 @@ export default function Board() {
       nextSquares[i] = "O";
     }
 
-    setSquares(nextSquares);
-    setXIsNext(!xIsNext);
+    onPlay(nextSquares);
   };
 
   const winner = calculateWinner(squares);
@@ -36,7 +32,7 @@ export default function Board() {
   }
 
   return (
-    <article className="playBoard">
+    <div className="playBoard">
       <div className="board-row">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
@@ -53,7 +49,47 @@ export default function Board() {
         <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
       </div>
       <div className="status">{status}</div>
-    </article>
+    </div>
+  );
+}
+
+export default function Game() {
+  const [xIsNext, setXIsNext] = useState(true);
+  const [history, setHistory] = useState([Array(9).fill(null)]);
+  const currentSquares = history[history.length - 1];
+
+  function handlePlay(nextSquares) {
+    setHistory([...history, nextSquares]);
+    setXIsNext(!xIsNext);
+  }
+
+  function jumpTo(nextMove) {
+    // TODO
+  }
+
+  const moves = history.map((squares, move) => {
+    let description;
+    if (move > 0) {
+      description = `${move}번째 시점으로 돌아가기`;
+    } else {
+      description = "게임 시작하기";
+    }
+    return (
+      <li>
+        <button onClick={() => jumpTo(move)}>{description}</button>
+      </li>
+    );
+  });
+
+  return (
+    <div className="game">
+      <div className="game-board">
+        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+      </div>
+      <div className="game-info">
+        <ul className="historyList">{moves}</ul>
+      </div>
+    </div>
   );
 }
 
