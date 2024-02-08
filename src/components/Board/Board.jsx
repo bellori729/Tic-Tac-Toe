@@ -32,9 +32,9 @@ const Board = ({ xIsNext, squares, onPlay }) => {
     }
     const nextSquares = squares.slice();
     if (xIsNext) {
-      nextSquares[i] = "X";
+      nextSquares[i] = "🐶";
     } else {
-      nextSquares[i] = "O";
+      nextSquares[i] = "🐱";
     }
 
     onPlay(nextSquares);
@@ -45,7 +45,7 @@ const Board = ({ xIsNext, squares, onPlay }) => {
   if (winner) {
     status = `${winner}가 이겼습니다!`;
   } else {
-    status = `${xIsNext ? "X" : "O"}의 차례입니다.`;
+    status = `${xIsNext ? "🐶" : "🐱"}의 차례입니다.`;
   }
 
   return (
@@ -65,7 +65,9 @@ const Board = ({ xIsNext, squares, onPlay }) => {
         <Square value={squares[7]} onSquareClick={() => handleClick(7)} />
         <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
       </div>
-      <div className="status">{status}</div>
+      <div className="status">
+        <p>{status}</p>
+      </div>
     </div>
   );
 };
