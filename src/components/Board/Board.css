@@ -1,0 +1,15 @@
+.playBoard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .board-row:after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+
+  .status {
+    margin-top: 10px;
+  }
+}

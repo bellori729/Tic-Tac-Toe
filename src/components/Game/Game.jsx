@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Board } from "../../components";
+import "./Game.css";
 
 const Game = () => {
   const [history, setHistory] = useState([Array(9).fill(null)]);
