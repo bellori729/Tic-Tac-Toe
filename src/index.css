@@ -1,5 +1,7 @@
 body {
   font-family: pretendard;
-  margin: 20px;
-  padding: 0;
+  margin: 0 auto;
+  padding: 20px;
+  width: 100vh;
+  height: auto;
 }
