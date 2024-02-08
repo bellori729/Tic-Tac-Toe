@@ -22,16 +22,16 @@ const Game = () => {
     let description;
     if (move > 0) {
       description = `${move}번째 시점으로 돌아가기`;
-    } else {
-      description = "초기화";
     }
-    return (
-      <li key={move}>
-        <button className="historyBtn" onClick={() => jumpTo(move)}>
-          {description}
-        </button>
-      </li>
-    );
+    if (description) {
+      return (
+        <li key={move}>
+          <button className="historyBtn" onClick={() => jumpTo(move)}>
+            {description}
+          </button>
+        </li>
+      );
+    }
   });
 
   return (
