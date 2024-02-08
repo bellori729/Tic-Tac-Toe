@@ -23,6 +23,11 @@ const Board = ({ xIsNext, squares, onPlay }) => {
         return squares[a];
       }
     }
+
+    if (!squares.includes(null)) {
+      return "없음";
+    }
+
     return null;
   }
 
@@ -43,9 +48,9 @@ const Board = ({ xIsNext, squares, onPlay }) => {
   const winner = calculateWinner(squares);
   let status;
   if (winner) {
-    status = `${winner}가 이겼습니다!`;
+    status = `승자: ${winner}`;
   } else {
-    status = `${xIsNext ? "🐶" : "🐱"}의 차례입니다.`;
+    status = `차례 : ${xIsNext ? "🐶" : "🐱"}`;
   }
 
   return (
