@@ -1,5 +1,4 @@
 import { Square } from "../../components";
-import "./Board.css";
 
 const Board = ({ xIsNext, squares, onPlay }) => {
   function calculateWinner(squares) {
