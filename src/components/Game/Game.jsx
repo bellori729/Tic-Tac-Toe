@@ -26,7 +26,7 @@ const Game = () => {
       return (
         <li key={move}>
           <button
-            className="historyBtn text-black bg-white rounded-md border border-black hover:bg-gray-600 hover:transition-all hover:duration-500 hover:text-white"
+            className="historyBtn px-2 font-bold text-black bg-white rounded-md border border-black hover:bg-gray-600 hover:transition-all hover:duration-500 hover:text-white"
             onClick={() => jumpTo(move)}
           >
             {description}
@@ -42,7 +42,7 @@ const Game = () => {
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
       <div className="game-info w-[200px] h-full flex flex-col items-center list-none p-0 m-0">
-        <p className="font-bold">HISTORY</p>
+        <p className="font-bold mb-3 text-2xl">HISTORY</p>
         <ul className="historyList flex flex-col items-center gap-2.5">
           {moves}
         </ul>
