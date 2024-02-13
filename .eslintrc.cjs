@@ -16,9 +16,10 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "react-hooks", "jsx-a11y"],
+  plugins: ["react", "react-hooks", "jsx-a11y", "react-refresh"],
   rules: {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
+    "react-refresh/only-export-components": "warn",
   },
 };
