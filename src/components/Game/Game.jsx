@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Board } from "../../components";
-import "./Game.css";
 
 const Game = () => {
   const [history, setHistory] = useState([Array(9).fill(null)]);
@@ -26,7 +25,10 @@ const Game = () => {
     if (description) {
       return (
         <li key={move}>
-          <button className="historyBtn" onClick={() => jumpTo(move)}>
+          <button
+            className="historyBtn text-black bg-white rounded-md border border-black hover:bg-gray-600 hover:transition-all hover:duration-500 hover:text-white"
+            onClick={() => jumpTo(move)}
+          >
             {description}
           </button>
         </li>
@@ -35,13 +37,15 @@ const Game = () => {
   });
 
   return (
-    <div className="game">
+    <div className="game flex justify-around items-center gap-12 w-[720px] h-[400px]">
       <div className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
-      <div className="game-info">
-        <p>HISTORY</p>
-        <ul className="historyList">{moves}</ul>
+      <div className="game-info w-[200px] h-full flex flex-col items-center list-none p-0 m-0">
+        <p className="font-bold">HISTORY</p>
+        <ul className="historyList flex flex-col items-center gap-2.5">
+          {moves}
+        </ul>
       </div>
     </div>
   );
