@@ -38,9 +38,7 @@ const Game = () => {
 
   return (
     <section className="game flex justify-around items-center gap-12 w-[720px] h-[400px]">
-      <div className="game-board">
-        <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
-      </div>
+      <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       <History moves={moves} />
     </section>
   );
