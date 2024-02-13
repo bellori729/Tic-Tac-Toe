@@ -28,7 +28,7 @@ const Board = ({ nextPlayer, squares, onPlay }) => {
     }
 
     if (!squares.includes(null)) {
-      return "없음";
+      return "DRAW";
     }
 
     return null;
@@ -51,9 +51,9 @@ const Board = ({ nextPlayer, squares, onPlay }) => {
   const checkWinner = calculateWinner(squares);
   let status;
   if (checkWinner) {
-    status = `승자: ${checkWinner}`;
+    status = `WINNER: ${checkWinner}`;
   } else {
-    status = `차례 : ${nextPlayer ? PLAYER_1 : PLAYER_2}`;
+    status = `NEXT PLAYER : ${nextPlayer ? PLAYER_1 : PLAYER_2}`;
   }
 
   useEffect(() => {
