@@ -5,7 +5,7 @@ const PLAYER_2 = "🐱";
 
 const Board = ({ nextPlayer, squares, onPlay }) => {
   function calculateWinner(squares) {
-    const WINNER_CINDITIONS = [
+    const WINNER_CONDITIONS = [
       [0, 1, 2],
       [3, 4, 5],
       [6, 7, 8],
@@ -15,8 +15,8 @@ const Board = ({ nextPlayer, squares, onPlay }) => {
       [0, 4, 8],
       [2, 4, 6],
     ];
-    for (let i = 0; i < WINNER_CINDITIONS.length; i++) {
-      const [x, y, z] = WINNER_CINDITIONS[i];
+    for (let i = 0; i < WINNER_CONDITIONS.length; i++) {
+      const [x, y, z] = WINNER_CONDITIONS[i];
       if (
         squares[x] &&
         squares[x] === squares[y] &&
