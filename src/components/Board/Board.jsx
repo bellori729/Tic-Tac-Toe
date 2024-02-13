@@ -47,10 +47,10 @@ const Board = ({ nextPlayer, squares, onPlay }) => {
     onPlay(nextSquares);
   };
 
-  const winner = calculateWinner(squares);
+  const checkWinner = calculateWinner(squares);
   let status;
-  if (winner) {
-    status = `승자: ${winner}`;
+  if (checkWinner) {
+    status = `승자: ${checkWinner}`;
   } else {
     status = `차례 : ${nextPlayer ? PLAYER_1 : PLAYER_2}`;
   }
