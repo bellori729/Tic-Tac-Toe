@@ -2,10 +2,18 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-body {
-  font-family: pretendard;
-  margin: 0 auto;
-  padding: 20px;
-  width: 100vh;
-  height: auto;
+@font-face {
+  font-family: "Pretendard";
+  font-weight: 100;
+  font-style: normal;
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.eot");
+  src: url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.woff2")
+      format("woff2"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.woff")
+      format("woff"),
+    url("https://cdn.jsdelivr.net/gh/webfontworld/pretendard/Pretendard-Thin.ttf")
+      format("truetype");
+  font-display: swap;
 }
