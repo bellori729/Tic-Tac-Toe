@@ -2,8 +2,8 @@ import { Game } from "..";
 
 const App = () => {
   return (
-    <div className="App">
-      <h1>Tic-Tac-Toe</h1>
+    <div className="App text-center font-pretendard">
+      <h1 className="text-3xl font-bold">Tic-Tac-Toe</h1>
       <Game />
     </div>
   );
