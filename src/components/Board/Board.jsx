@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Square, Status } from "../../components";
 
 const PLAYER_1 = "🐶";
@@ -54,6 +55,14 @@ const Board = ({ nextPlayer, squares, onPlay }) => {
   } else {
     status = `차례 : ${nextPlayer ? PLAYER_1 : PLAYER_2}`;
   }
+
+  useEffect(() => {
+    if (checkWinner) {
+      setTimeout(() => {
+        alert("GAME OVER");
+      }, 200);
+    }
+  }, [checkWinner]);
 
   return (
     <div className="playBoard flex flex-col items-center">
