@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Board } from "../../components";
+import { Board, History } from "../../components";
 
 const Game = () => {
   const [history, setHistory] = useState([Array(9).fill(null)]);
@@ -41,12 +41,7 @@ const Game = () => {
       <div className="game-board">
         <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
       </div>
-      <div className="game-info w-[200px] h-full flex flex-col items-center list-none p-0 m-0">
-        <p className="font-bold mb-3 text-2xl">HISTORY</p>
-        <ul className="historyList flex flex-col items-center gap-2.5">
-          {moves}
-        </ul>
-      </div>
+      <History moves={moves} />
     </section>
   );
 };
