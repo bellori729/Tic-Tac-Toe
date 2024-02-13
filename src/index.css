@@ -5,3 +5,7 @@ body {
   width: 100vh;
   height: auto;
 }
+
+.App {
+  text-align: center;
+}
