@@ -16,13 +16,13 @@ const Board = ({ nextPlayer, squares, onPlay }) => {
       [2, 4, 6],
     ];
     for (let i = 0; i < WINNER_CINDITIONS.length; i++) {
-      const [a, b, c] = WINNER_CINDITIONS[i];
+      const [x, y, z] = WINNER_CINDITIONS[i];
       if (
-        squares[a] &&
-        squares[a] === squares[b] &&
-        squares[a] === squares[c]
+        squares[x] &&
+        squares[x] === squares[y] &&
+        squares[x] === squares[z]
       ) {
-        return squares[a];
+        return squares[x];
       }
     }
 
