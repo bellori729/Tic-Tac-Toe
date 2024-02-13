@@ -4,7 +4,7 @@ import { Board, History } from "../../components";
 const Game = () => {
   const [history, setHistory] = useState([Array(9).fill(null)]);
   const [currentMove, setCurrentMove] = useState(0);
-  const xIsNext = currentMove % 2 === 0;
+  const nextPlayer = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
 
   function handlePlay(nextSquares) {
@@ -38,7 +38,11 @@ const Game = () => {
 
   return (
     <section className="game flex justify-around items-center gap-12 w-[720px] h-[400px]">
-      <Board xIsNext={xIsNext} squares={currentSquares} onPlay={handlePlay} />
+      <Board
+        nextPlayer={nextPlayer}
+        squares={currentSquares}
+        onPlay={handlePlay}
+      />
       <History moves={moves} />
     </section>
   );

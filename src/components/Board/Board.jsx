@@ -3,7 +3,7 @@ import { Square, Status } from "../../components";
 const PLAYER_1 = "🐶";
 const PLAYER_2 = "🐱";
 
-const Board = ({ xIsNext, squares, onPlay }) => {
+const Board = ({ nextPlayer, squares, onPlay }) => {
   function calculateWinner(squares) {
     const lines = [
       [0, 1, 2],
@@ -38,7 +38,7 @@ const Board = ({ xIsNext, squares, onPlay }) => {
       return;
     }
     const nextSquares = squares.slice();
-    if (xIsNext) {
+    if (nextPlayer) {
       nextSquares[i] = PLAYER_1;
     } else {
       nextSquares[i] = PLAYER_2;
@@ -52,7 +52,7 @@ const Board = ({ xIsNext, squares, onPlay }) => {
   if (winner) {
     status = `승자: ${winner}`;
   } else {
-    status = `차례 : ${xIsNext ? PLAYER_1 : PLAYER_2}`;
+    status = `차례 : ${nextPlayer ? PLAYER_1 : PLAYER_2}`;
   }
 
   return (
