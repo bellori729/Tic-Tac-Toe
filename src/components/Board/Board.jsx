@@ -1,5 +1,8 @@
 import { Square, Status } from "../../components";
 
+const PLAYER_1 = "🐶";
+const PLAYER_2 = "🐱";
+
 const Board = ({ xIsNext, squares, onPlay }) => {
   function calculateWinner(squares) {
     const lines = [
@@ -36,9 +39,9 @@ const Board = ({ xIsNext, squares, onPlay }) => {
     }
     const nextSquares = squares.slice();
     if (xIsNext) {
-      nextSquares[i] = "🐶";
+      nextSquares[i] = PLAYER_1;
     } else {
-      nextSquares[i] = "🐱";
+      nextSquares[i] = PLAYER_2;
     }
 
     onPlay(nextSquares);
@@ -49,7 +52,7 @@ const Board = ({ xIsNext, squares, onPlay }) => {
   if (winner) {
     status = `승자: ${winner}`;
   } else {
-    status = `차례 : ${xIsNext ? "🐶" : "🐱"}`;
+    status = `차례 : ${xIsNext ? PLAYER_1 : PLAYER_2}`;
   }
 
   return (
