@@ -70,7 +70,7 @@ const Board = ({ xIsNext, squares, onPlay }) => {
         <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
       </div>
       <div className="status mt-2.5">
-        <p>{status}</p>
+        <p className="text-black font-bold">{status}</p>
       </div>
     </div>
   );
