@@ -1,4 +1,4 @@
-import { Square } from "../../components";
+import { Square, Status } from "../../components";
 
 const Board = ({ xIsNext, squares, onPlay }) => {
   function calculateWinner(squares) {
@@ -70,7 +70,7 @@ const Board = ({ xIsNext, squares, onPlay }) => {
         <Square value={squares[8]} onSquareClick={() => handleClick(8)} />
       </div>
       <div className="status mt-2.5">
-        <p className="text-black font-bold">{status}</p>
+        <Status status={status} />
       </div>
     </div>
   );
