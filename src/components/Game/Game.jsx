@@ -26,7 +26,7 @@ const Game = () => {
       return (
         <li key={move}>
           <button
-            className="historyBtn px-2 font-bold text-black bg-white rounded-md border border-black hover:bg-gray-600 hover:transition-all hover:duration-500 hover:text-white"
+            className="historyBtn px-2 font-bold text-black bg-white rounded-md border border-black hover:bg-slate-800 hover:transition-all hover:duration-500 hover:text-white"
             onClick={() => jumpTo(move)}
           >
             {description}
