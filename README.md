@@ -1,6 +1,4 @@
 # Tic-Tac-Toe
-🗡과 🛡가 싸우는 틱택토 게임
-
 배포 링크 : https://bellori-tic-tac-toe.netlify.app/
 
 ### 게임 진행
