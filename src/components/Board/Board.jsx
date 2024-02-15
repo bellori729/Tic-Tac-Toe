@@ -1,10 +1,16 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Square, Status } from "../../components";
 
-const PLAYER_1 = "🗡";
-const PLAYER_2 = "🛡";
+// const PLAYER_1 = "🗡";
+// const PLAYER_2 = "🛡";
+
+const dogAndCat = ["🐶", "😼"];
+const manAndWoman = ["🧑🏻", "👩🏻"];
+const keyAndLock = ["🔑", "🔒"];
+const pizzaAndHamburger = ["🍕", "🍔"];
 
 const Board = ({ nextPlayer, squares, onPlay }) => {
+  const [player, setPlayer] = useState(dogAndCat);
   function calculateWinner(squares) {
     const WINNER_CONDITIONS = [
       [0, 1, 2],
@@ -40,9 +46,9 @@ const Board = ({ nextPlayer, squares, onPlay }) => {
     }
     const nextSquares = squares.slice();
     if (nextPlayer) {
-      nextSquares[i] = PLAYER_1;
+      nextSquares[i] = player[0];
     } else {
-      nextSquares[i] = PLAYER_2;
+      nextSquares[i] = player[1];
     }
 
     onPlay(nextSquares);
@@ -53,7 +59,7 @@ const Board = ({ nextPlayer, squares, onPlay }) => {
   if (checkWinner) {
     status = `WINNER: ${checkWinner}`;
   } else {
-    status = `NEXT PLAYER : ${nextPlayer ? PLAYER_1 : PLAYER_2}`;
+    status = `NEXT PLAYER : ${nextPlayer ? player[0] : player[1]}`;
   }
 
   useEffect(() => {
@@ -66,6 +72,35 @@ const Board = ({ nextPlayer, squares, onPlay }) => {
 
   return (
     <div className="playBoard flex flex-col items-center">
+      <div className="mb-2.5 flex gap-5">
+        <span className="text-white font-bold text-2xl">Select an item </span>
+        <select
+          className="w-[70px] text-center font-bold rounded-md"
+          onChange={(e) => {
+            switch (e.target.value) {
+              case dogAndCat.join(""):
+                setPlayer(dogAndCat);
+                break;
+              case manAndWoman.join(""):
+                setPlayer(manAndWoman);
+                break;
+              case keyAndLock.join(""):
+                setPlayer(keyAndLock);
+                break;
+              case pizzaAndHamburger.join(""):
+                setPlayer(pizzaAndHamburger);
+                break;
+              default:
+                break;
+            }
+          }}
+        >
+          <option>{dogAndCat}</option>
+          <option>{manAndWoman}</option>
+          <option>{keyAndLock}</option>
+          <option>{pizzaAndHamburger}</option>
+        </select>
+      </div>
       <div className="board-row after:content-[''] after:table">
         <Square value={squares[0]} onSquareClick={() => handleClick(0)} />
         <Square value={squares[1]} onSquareClick={() => handleClick(1)} />
